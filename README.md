@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lovejeet Singh - Full-Stack Developer Portfolio
 
-## Getting Started
+A highly interactive, 3D-accelerated personal portfolio designed to showcase Full-Stack Engineering, UI/UX design, and Machine Learning expertise. Built with modern web technologies focusing on performance, smooth animations, and a dark-luxury brutalist aesthetic.
 
-First, run the development server:
+## 🚀 Live Demo & Screenshots
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+*(This section is reserved for the Live Deployed URL once hosted on Vercel).*
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **3D Rendering:** Three.js + React Three Fiber (`@react-three/fiber`, `@react-three/drei`)
+- **Animations:** Framer Motion & GSAP
+- **Email Backend:** Resend SDK
+
+## ✨ Key Features
+
+- **Immersive 3D Experience**: Integrated custom WebGL canvas for interactive glassmorphism backgrounds and custom 3D geometries in the Projects showcase.
+- **Scroll-Linked Animations**: Utilizes GSAP and Framer Motion to map DOM scrolling to timeline animations and text reveals seamlessly.
+- **Dynamic Contact Form**: A fully functional, production-ready contact system integrated with Resend, delivering messages directly to a private inbox rather than basic `mailto:` links.
+- **Performance Optimized**: Built using Next.js `Image` components, dynamic scene loading for 3D elements, and clean architecture ensuring 60fps WebGL execution without blocking the main DOM thread.
+- **Responsive Design**: Flawless translation of the dark-glass theme across ultra-wide monitors, standard laptops, and mobile viewports.
+
+## 📂 Project Structure
+
+```
+├── public/                 # Static assets (images, 3D models)
+├── src/
+│   ├── app/                # Next.js App Router (Pages & API Routes)
+│   │   ├── api/contact/    # Resend Email Backend logic
+│   │   ├── layout.tsx      # Global UI wrap and font definitions
+│   │   └── page.tsx        # Main portfolio composition
+│   ├── components/         
+│   │   ├── animations/     # Framer Motion components (ScrollReveal, TextReveal)
+│   │   ├── sections/       # Primary DOM sections (Hero, About, Projects, etc.)
+│   │   └── webgl/          # Three.js (R3F) Canvas components and scenes
+│   └── lib/                # Shared utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/z-lovejeet/portfolio.git
+   cd portfolio
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Configure Environment Variables:**
+   Create a `.env.local` file in the root directory and add your Resend API Key for the contact form:
+   ```env
+   RESEND_API_KEY=re_your_api_key_here
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   *Your site will be available at [http://localhost:3000](http://localhost:3000)*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Deployment (Vercel)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This repository is optimized for **Vercel**.
+1. Push your code to GitHub.
+2. Import the project into Vercel.
+3. Add `RESEND_API_KEY` to your Vercel Environment Variables.
+4. Deploy! Next.js will automatically build and distribute the site globally.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Designed & Engineered by [Lovejeet Singh](https://github.com/z-lovejeet).*
