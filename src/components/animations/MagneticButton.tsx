@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useRef, useState, ReactNode } from 'react';
+import { uiSound } from '@/lib/audio';
 
 interface MagneticButtonProps {
     children: ReactNode;
@@ -29,7 +30,16 @@ export default function MagneticButton({
         setPosition({ x: x * 0.2, y: y * 0.2 });
     };
 
+    const handleMouseEnter = () => {
+        uiSound?.playHover();
+    };
+
     const handleMouseLeave = () => setPosition({ x: 0, y: 0 });
+
+    const handleClick = (e: React.MouseEvent) => {
+        uiSound?.playClick();
+        if (onClick) onClick();
+    };
 
     const baseStyles = variant === 'primary'
         ? 'bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25'
@@ -42,8 +52,9 @@ export default function MagneticButton({
             animate={{ x: position.x, y: position.y }}
             transition={{ type: 'spring', stiffness: 300, damping: 15, mass: 0.3 }}
             onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={onClick}
+            onClick={handleClick}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             data-hover
@@ -55,7 +66,10 @@ export default function MagneticButton({
     );
 
     if (href) {
-        return <a href={href}>{content}</a>;
+        return <a href={href} onClick={(e) => {
+            uiSound?.playClick();
+            if (onClick) onClick();
+        }}>{content}</a>;
     }
     return content;
 }

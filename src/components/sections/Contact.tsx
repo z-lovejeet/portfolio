@@ -79,7 +79,7 @@ export default function Contact() {
                                 <div>
                                     <h4 className="font-heading text-sm font-semibold mb-1">Discord</h4>
                                     <p className="text-white/80 font-medium text-sm mb-1">z.beast</p>
-                                    <p className="text-white/30 text-xs">Clients can also contact me directly via Discord</p>
+                                    <p className="text-white/30 text-xs">Available for direct communication and inquiries</p>
                                 </div>
                             </GlassCard>
                         </ScrollReveal>
